@@ -4,6 +4,7 @@ from client import GithubOrgClient
 from parameterized import parameterized, param, parameterized_class
 from fixtures import TEST_PAYLOAD
 
+
 class TestGithubOrgClient(unittest.TestCase):
     """Test Github orgclient"""
 
@@ -57,7 +58,7 @@ class TestGithubOrgClient(unittest.TestCase):
         gh_clt = GithubOrgClient('test')
         self.assertEqual(gh_clt.has_license(repo,
                                             license_key), resp)
-        
+
 
 @parameterized_class(
     ('org_payload', 'repos_payload', 'expected_repos', 'apache2_repos'),
@@ -99,8 +100,3 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
     def tearDownClass(cls):
         """stop the requests.get patch"""
         cls.get_patcher.stop()
-
-
-    
-
-
